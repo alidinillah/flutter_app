@@ -17,6 +17,3 @@ tasks.register<Delete>("clean") {
     delete(rootProject.buildDir)
 }
 
-android {
-    ndkVersion "27.0.12077973"
-}

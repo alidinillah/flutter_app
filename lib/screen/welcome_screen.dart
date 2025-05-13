@@ -7,21 +7,51 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(children: [
-        Text(
-          'Task Management & To-Do List',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                'https://cdn-icons-png.flaticon.com/512/3222/3222691.png',
+                width: 120,
+                height: 120,
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Task Management & To-Do List',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'This productive tool is designed to help you better manage your task projects conveniently.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 32),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => TodoScreen());
+                  },
+                  child: const Text("Let's Start"),
+                ),
+              ),
+            ],
+          ),
         ),
-        SizedBox(height: 8),
-        Text(
-          'This productive tool is designed to help you better manage your task project with conventionally',
-          style: TextStyle(color: Colors.black12),
-        ),
-        ElevatedButton(onPressed: () {
-          Get.to(TodoScreen());
-        }, child: Text("Let's Start")),
-      ]),
+      ),
     );
   }
 }

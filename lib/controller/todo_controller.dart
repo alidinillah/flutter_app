@@ -6,6 +6,8 @@ class TodoController extends GetxController {
   var isLoading = true.obs;
   var todoList = <TodoModel>[].obs;
 
+  var selectedDate = DateTime.now().obs;
+
   @override
   void onInit() async {
     // TODO: implement onInit
@@ -22,5 +24,14 @@ class TodoController extends GetxController {
     } finally {
       isLoading(false);
     }
+  }
+
+  void setSelectedDate(DateTime date) {
+    selectedDate.value = date;
+  }
+
+  List<DateTime> get dateList {
+    final today = DateTime.now();
+    return List.generate(14, (index) => today.add(Duration(days: index - 7)));
   }
 }

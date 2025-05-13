@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  TodoService.simulateOffline = true;
+  TodoService.simulateOffline = false;
   runApp(const MyApp());
 }
 
